@@ -1,0 +1,88 @@
+[2024-12-13 14:33:40,426] ERROR log_exception() L1449 Exception on /produtores [GET] - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py L1449
+Traceback (most recent call last):
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: produtor.data_insercao
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_openapi3\scaffold.py", line 109, in wrapper
+    resp = _do_wrapper(
+           ^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_openapi3\do_wrapper.py", line 135, in _do_wrapper
+    response = func(**request_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\OneDrive\Área de Trabalho\Faculdade\Pos\MVP\Projeto\back-end\app.py", line 98, in get_produtores
+    produtores = session.query(Produtor).all()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\query.py", line 2907, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 333, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: produtor.data_insercao
+[SQL: SELECT produtor.pk_produtor AS produtor_pk_produtor, produtor.nome AS produtor_nome, produtor."CPF" AS "produtor_CPF", produtor.numero AS produtor_numero, produtor.funcao AS produtor_funcao, produtor.salario AS produtor_salario, produtor.email AS produtor_email, produtor.curriculum AS produtor_curriculum, produtor.data_insercao AS produtor_data_insercao 
+FROM produtor]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-12-13 14:33:40,428] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:33:40] "GET /eventos HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:33:40,428] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:33:40] "GET /fornecedores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:33:40,492] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:33:40] "[35m[1mGET /produtores HTTP/1.1[0m" 500 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:07,143] WARNING _log() L225   * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment. - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:07,144] INFO _log() L225   * Running on http://192.168.15.43:5000/ (Press CTRL+C to quit) - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:26,848] WARNING _log() L225   * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment. - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:26,849] INFO _log() L225   * Running on http://192.168.15.43:5000/ (Press CTRL+C to quit) - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:49,073] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:38:49] "GET /fornecedores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:49,074] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:38:49] "GET /produtores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:38:49,075] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:38:49] "GET /eventos HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:39:22,647] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:39:22] "POST /produtor HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:40:02,512] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:40:02] "POST /fornecedor HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:40:16,059] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:40:16] "GET /eventos HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:40:16,060] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:40:16] "GET /produtores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:40:16,060] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:40:16] "GET /fornecedores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:41:10,906] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:41:10] "POST /evento HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:41:17,842] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:41:17] "GET /eventos HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:41:17,843] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:41:17] "GET /produtores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
+[2024-12-13 14:41:17,843] INFO _log() L225  127.0.0.1 - - [13/Dec/2024 14:41:17] "GET /fornecedores HTTP/1.1" 200 - - call_trace=C:\Users\Ricar\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\_internal.py L225 
